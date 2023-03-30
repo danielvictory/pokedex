@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("./partials/head.ejs") %>
+</head>
+<body>
+    <nav>
+        <%- include ("./partials/nav.ejs") %>
+    <nav>
+
+    <h1>Pokemon Detail Page</h1>
+    
+    <div id="edit-link">
+        <a href="/pokemon/<%=mon.id-1 %>/edit">Edit</a>
+    </div>
+    <div id="show-container" class="container">
+        <section class="show-card">
+            <h2><%=mon.name %></h2>
+            <img alt="<%=mon.name %>" src="<%=mon.img %>" height="100px">
+            <h3>Type:</h3>
+            <ul class="type-list">
+                <%mon.type.forEach((t) => { %>
+                    <li><%=t %></li>
+                <% }) %>
+            </ul>
+            <h3>Stats</h3>
+            <ul class="stats-list">
+                <%
+                let k = Object.keys(mon.stats)
+                let v = Object.values(mon.stats)
+                k.forEach((k, i) => { 
+                    x = `${k}: ${v[i]}`
+                %>
+                <li><%=x %></li>
+                <% }) %>
+            </ul>
+
+        </section>
+    </div>
+</body>
+</html>

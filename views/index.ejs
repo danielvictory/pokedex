@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("./partials/head.ejs") %>
+</head>
+<body>
+    <nav>
+        <%- include ("./partials/nav.ejs") %>
+    <nav>
+
+    <h1>Pokedex</h1>
+
+    <div id="index-container" class="container">
+        <% pokemon.forEach( (p, i) => { %>
+            <section class="card">
+                <a href="/pokemon/<%=i %>">
+                <img alt="<%=p.name %>" src="<%=p.img %>" height="100px">
+                <p><%=p.name %></p>
+                </a>
+            </section>
+        <% }) %>
+    </div>
+</body>
+</html>

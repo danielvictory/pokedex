@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("./partials/head.ejs") %>
+</head>
+<body>
+    <nav>
+        <%- include ("./partials/nav.ejs") %>
+    <nav>
+
+    <h1>New 'Dex Entry!</h1>
+
+    <div id="new-container" class="container">
+        <form action="/pokemon" method="POST">
+            Name: <input type="text" name="name" value="NO DATA" onclick="this.select()">
+        </form>
+    </div>
+</body>
+</html>
