@@ -8,13 +8,20 @@
         <%- include ("./partials/nav.ejs") %>
     <nav>
 
-    <h1>EDIT</h1>
+    <h1>Pokemon Details Edit</h1>
 
     <div id="edit-container" class="container">
-        <section class="card">
-            <img alt="<%=mon.name %>" src="<%=mon.img %>" height="100px">
-            <p><%=mon.name %></p>
-        </section>
+        <form action="/pokemon?_method=PUT" method=POST>
+            Image: <input type="text" name="img" value="<%=mon.img %>" onclick="this.select()">
+            Name: <input type="text" name="name" value="<%=mon.name %>" onclick="this.select()">
+            Type: <input type="text" name="type" value="<%=mon.type.join(', ') %>" onclick="this.select()">
+            HP: <input type="text" name="stats[hp]" value="<%=mon.stats.hp %>" onclick="this.select()">
+            Attack: <input type="text" name="stats[attack]" value="<%=mon.stats.attack %>" onclick="this.select()">
+            Defense: <input type="text" name="stats[defense]" value="<%=mon.stats.defense %>" onclick="this.select()">
+            SP Attack: <input type="text" name="stats[spattack]" value="<%=mon.stats.spattack %>" onclick="this.select()">
+            SP Defense: <input type="text" name="stats[spdefense]" value="<%=mon.stats.spdefense %>" onclick="this.select()">
+            Speed: <input type="text" name="stats[speed]" value="<%=mon.stats.speed %>" onclick="this.select()">
+        </form>
     </div>
 </body>
 </html>
