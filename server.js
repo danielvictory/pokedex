@@ -39,6 +39,8 @@ app.get("/pokemon/new", (req, res) => {
 // D for DELETE: DELETE
 app.delete("/pokemon/:id", (req, res) => {
     pokemon.splice(req.params.id, 1)
+    shift += 1
+    console.log(shift)
     res.redirect("/pokemon")
 })
 
@@ -62,6 +64,7 @@ app.post("/pokemon", (req, res) => {
 // E is for Edit: GET
 app.get("/pokemon/:id/edit", (req, res) => {
     let x = req.params.id
+    console.log(pokemon[x].img)
     res.render("edit.ejs", {
         mon: pokemon[x],
         index: x
@@ -71,6 +74,7 @@ app.get("/pokemon/:id/edit", (req, res) => {
 // S is for Show: GET
 app.get("/pokemon/:id", (req, res) => {
     let x = req.params.id
+    console.log(pokemon[x].img)
     res.render("show.ejs", {mon: pokemon[x], i: x})
 })
 

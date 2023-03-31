@@ -2,6 +2,24 @@
 <html lang="en">
 <head>
     <%- include ("./partials/head.ejs") %>
+    <style type="text/css">
+        body {
+            display: flex;
+            justify-content: center
+        }
+        #index-container {
+            width: 30%;
+
+            display :grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            justify-items: center;
+        }
+        section {
+            width: 200px;
+
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <nav>
