@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 4000;
 const pokemon = require("./models/pokemon.js")
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(mO("_method"))
 
 // I for INDEX: GET home page and index
@@ -40,7 +40,11 @@ app.get("/pokemon/new", (req, res) => {
 
 
 // U is for Update: PUT
-
+app.put("/pokemon/:id", (req, res) => {
+    let x = req.params.id
+    pokemon[x] = req.body
+    res.redirect("/pokemon")
+})
 
 // C is for Create: POST
 app.post("/pokemon", (req, res) => {
@@ -51,7 +55,10 @@ app.post("/pokemon", (req, res) => {
 // E is for Edit: GET
 app.get("/pokemon/:id/edit", (req, res) => {
     let x = req.params.id
-    res.render("edit.ejs", {mon: pokemon[x]})
+    res.render("edit.ejs", {
+        mon: pokemon[x],
+        index: x
+    })
 })
 
 // S is for Show: GET
