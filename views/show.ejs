@@ -12,6 +12,9 @@
     
     <div id="edit-link">
         <a href="/pokemon/<%=mon.id-1 %>/edit">Edit</a>
+        <form action="/pokemon/<%=i %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE">
+        </form>
     </div>
     <div id="show-container" class="container">
         <section class="show-card">

@@ -37,10 +37,17 @@ app.get("/pokemon/new", (req, res) => {
 })
 
 // D for DELETE: DELETE
-
+app.delete("/pokemon/:id", (req, res) => {
+    pokemon.splice(req.params.id, 1)
+    res.redirect("/pokemon")
+})
 
 // U is for Update: PUT
 app.put("/pokemon/:id", (req, res) => {
+    let t = []
+    t.push(req.body.type)
+    req.body.type = t
+
     let x = req.params.id
     pokemon[x] = req.body
     res.redirect("/pokemon")
@@ -64,7 +71,7 @@ app.get("/pokemon/:id/edit", (req, res) => {
 // S is for Show: GET
 app.get("/pokemon/:id", (req, res) => {
     let x = req.params.id
-    res.render("show.ejs", {mon: pokemon[x]})
+    res.render("show.ejs", {mon: pokemon[x], i: x})
 })
 
 // Listen
